@@ -12,9 +12,10 @@ const Page = async ({
   if (!searchParams!.q) redirect("/");
   const query = searchParams!.q;
   const websites = await prisma.website.findMany({
+    take: 20,
     orderBy: {
       backLinks: "asc",
-    //   loadTime: "asc",
+      //   loadTime: "asc",
     },
     where: {
       OR: [
@@ -27,6 +28,7 @@ const Page = async ({
     },
   });
   const images = await prisma.image.findMany({
+    take: 20,
     where: {
       OR: [
         { siteTitle: { contains: query, mode: "insensitive" } },
