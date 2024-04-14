@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model link {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  url         String   @unique
+  found       DateTime
+  lastUpdated DateTime
+}
+
+model website {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  url           String @unique
+  title         String
+  favicon       String
+  description   String
+  ogImage       String
+  firstFewWords String
+
+  loadTime  Int
+  backLinks Int
+
+  lastUpdated DateTime
+
+  headings         String[]
+  urlKeywords      String[]
+  mainKeywords     String[]
+  backLinkKeywords String[]
+}
+
+model image {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  imageUrl  String @unique
+  siteTitle String
+  siteURL   String
+  altTag    String
+}

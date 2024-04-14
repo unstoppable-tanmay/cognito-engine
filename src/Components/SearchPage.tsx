@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useSpeechToText from "react-hook-speech-to-text";
@@ -8,11 +7,9 @@ import useSpeechToText from "react-hook-speech-to-text";
 import { FaArrowRight } from "react-icons/fa";
 import { IoMdMic } from "react-icons/io";
 import { RiSearchLine } from "react-icons/ri";
-import NoSSR from "@/Components/NoSSR";
 
-export default function Home() {
-  const search = () => {};
-  const [searchQuery, setSearchQuery] = React.useState("");
+const SearchPage = ({ search }: { search: string }) => {
+  const [searchQuery, setSearchQuery] = React.useState(search);
   const {
     error,
     interimResult,
@@ -29,19 +26,18 @@ export default function Home() {
   useEffect(() => {
     setSearchQuery(interimResult!);
   }, [interimResult]);
+
   return (
-    <NoSSR>
-      <main className="bg-[#141414] flex items-center justify-center p-6 flex-col w-screen h-screen relative overflow-hidden">
-        <div className="name font-bold text-[clamp(70px,8vw,100px)] text-white/5 tracking-wider -mt-[clamp(70px,8vw,100px)] select-none">
-          Khoj
-        </div>
-        <div className="searchbar flex items-center px-4 py-3 gap-4 rounded-full w-[clamp(270px,500px,90vw)] bg-[#262626]/90 z-[1000]">
+    <main className="text-white bg-[#141414] w-full min-h-screen overflow-y-scroll overflow-x-hidden p-6 flex flex-col gap-4 items-center ">
+      <div className="header flex gap-4 items-center justify-between w-[clamp(280px,70%,1000px)]">
+        <div className="logo font-semibold text-2xl">Khoj</div>
+        <div className="searchbar flex items-center px-4 py-3 gap-4 rounded-full w-[clamp(270px,700px,90vw)] bg-[#262626]/90 z-[1000]">
           <RiSearchLine size={21} className="cursor-pointer" />
           <input
             type="text"
             name=""
             id=""
-            value={searchQuery}
+            value={searchQuery!}
             onChange={(e) => {
               setSearchQuery(e.target.value);
             }}
@@ -71,7 +67,11 @@ export default function Home() {
             className="cursor-pointer"
           />
         </div>
-      </main>
-    </NoSSR>
+      </div>
+      <div className="devider w-screen h-[1px] bg-white/10"></div>
+      <div className="ans w-[clamp(270px,700px,90vw)] flex flex-col gap-3"></div>
+    </main>
   );
-}
+};
+
+export default SearchPage;
