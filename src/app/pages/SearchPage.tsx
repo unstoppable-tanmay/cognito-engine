@@ -9,11 +9,11 @@ import { FaArrowRight, FaImage } from "react-icons/fa";
 import { IoMdMic } from "react-icons/io";
 import { RiSearchLine } from "react-icons/ri";
 import { image, website } from "@prisma/client";
-import WebsiteCard from "../../components/WebsiteCard";
-import ImageCards from "../../components/ImageCards";
 import { CgWebsite } from "react-icons/cg";
 import { MdImage } from "react-icons/md";
 import { TiImage } from "react-icons/ti";
+import WebsiteCard from "../components/WebsiteCard";
+import ImageCards from "../components/ImageCards";
 
 const SearchPage = ({
   search,
