@@ -36,7 +36,7 @@ const WebsiteCard = ({ website }: { website: website }) => {
   }
 
   return (
-    <Link href={website.url} target="_blank">
+    <Link href={website.url} target="_blank" className="cursor-pointer">
       <div className="w-full flex flex-col gap-1.5">
         <div className="headerSec flex gap-2 items-center">
           <img

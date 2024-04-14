@@ -5,12 +5,15 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import useSpeechToText from "react-hook-speech-to-text";
 
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaImage } from "react-icons/fa";
 import { IoMdMic } from "react-icons/io";
 import { RiSearchLine } from "react-icons/ri";
 import { image, website } from "@prisma/client";
 import WebsiteCard from "@/Components/WebsiteCard";
 import ImageCards from "@/Components/ImageCards";
+import { CgWebsite } from "react-icons/cg";
+import { MdImage } from "react-icons/md";
+import { TiImage } from "react-icons/ti";
 
 const SearchPage = ({
   search,
@@ -38,6 +41,7 @@ const SearchPage = ({
 
   useEffect(() => {
     setSearchQuery(interimResult!);
+    // router.push(`/search?q=${searchQuery}`);
   }, [interimResult]);
 
   return (
@@ -63,7 +67,7 @@ const SearchPage = ({
             placeholder={isRecording ? "Listining..." : "Search with khoj"}
             className="outline-none flex-1 bg-transparent border-none placeholder:text-white/20 min-w-[50px]"
           />
-          {searchQuery && (
+          {searchQuery && !isRecording && (
             <FaArrowRight
               onClick={(e) => {
                 router.push(`/search?q=${searchQuery}`);
@@ -84,15 +88,15 @@ const SearchPage = ({
       <div className="choose flex w-[clamp(280px,70%,1000px)]">
         <div
           onClick={(e) => setWebsite(true)}
-          className="websites select-none flex-1 flex items-center justify-center py-1.5 rounded-full hover:bg-white/5 duration-300 cursor-pointer"
+          className="websites select-none flex-1 flex gap-1 items-center justify-center py-1.5 rounded-full hover:bg-white/5 duration-300 cursor-pointer"
         >
-          Websites
+          Websites <CgWebsite />
         </div>
         <div
           onClick={(e) => setWebsite(false)}
-          className="images select-none flex-1 flex items-center justify-center py-1.5 rounded-full hover:bg-white/5 duration-300 cursor-pointer"
+          className="images select-none flex-1 flex gap-1 items-center justify-center py-1.5 rounded-full hover:bg-white/5 duration-300 cursor-pointer"
         >
-          Images
+          Images <TiImage size={21} className="mt-1" />
         </div>
       </div>
       <div className="devider w-screen h-[1px] bg-white/10"></div>

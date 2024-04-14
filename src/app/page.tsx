@@ -27,6 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     setSearchQuery(interimResult!);
+    // router.push(`/search?q=${searchQuery}`);
   }, [interimResult]);
   return (
     <main className="bg-[#141414] flex items-center justify-center p-6 flex-col w-screen h-screen relative overflow-hidden">
@@ -54,7 +55,7 @@ export default function Home() {
           placeholder={isRecording ? "Listining..." : "Search with khoj"}
           className="outline-none flex-1 bg-transparent border-none placeholder:text-white/20 min-w-[50px]"
         />
-        {searchQuery && (
+        {searchQuery && !isRecording && (
           <FaArrowRight
             onClick={(e) => {
               router.push(`/search?q=${searchQuery}`);
