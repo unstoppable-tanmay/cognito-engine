@@ -1,4 +1,4 @@
-import SearchPage from "@/Components/SearchPage";
+import SearchPage from "@/app/pages/SearchPage";
 import { redirect } from "next/navigation";
 import React from "react";
 
