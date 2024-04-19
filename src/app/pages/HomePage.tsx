@@ -33,7 +33,7 @@ export default function Home() {
     <main className="bg-[#141414] flex items-center justify-center p-6 flex-col w-screen h-screen relative overflow-hidden">
       {/* Page Header */}
       <div className="name font-bold text-[clamp(70px,8vw,100px)] text-white/5 tracking-wider -mt-[clamp(70px,8vw,100px)] select-none">
-        Khoj
+        AlphaEngine
       </div>
       {/* SearchBar */}
       <div className="searchbar flex items-center px-4 py-3 gap-4 rounded-full w-[clamp(270px,500px,90vw)] bg-[#262626]/90 z-[1000]">
@@ -52,7 +52,7 @@ export default function Home() {
             }
           }}
           disabled={isRecording}
-          placeholder={isRecording ? "Listining..." : "Search with khoj"}
+          placeholder={isRecording ? "Listining..." : "Search with AlphaEngine"}
           className="outline-none flex-1 bg-transparent border-none placeholder:text-white/20 min-w-[50px]"
         />
         {searchQuery && !isRecording && (

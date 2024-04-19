@@ -47,7 +47,7 @@ const SearchPage = ({
   return (
     <main className="text-white bg-[#141414] w-full min-h-screen overflow-y-scroll overflow-x-hidden p-6 flex flex-col gap-4 items-center ">
       <div className="header flex gap-4 items-center justify-center w-[clamp(250px,70%,1000px)]">
-        <div className="logo font-semibold text-2xl hidden sm:flex">Khoj</div>
+        <div className="logo font-semibold text-2xl hidden sm:flex">AlphaEngine</div>
         <div className="searchbar flex items-center px-4 py-3 gap-4 rounded-full flex-1 bg-[#262626]/90 z-[1000]">
           <RiSearchLine size={21} className="cursor-pointer" />
           <input
@@ -64,7 +64,7 @@ const SearchPage = ({
               }
             }}
             disabled={isRecording}
-            placeholder={isRecording ? "Listining..." : "Search with khoj"}
+            placeholder={isRecording ? "Listining..." : "Search with AlphaEngine"}
             className="outline-none flex-1 bg-transparent border-none placeholder:text-white/20 min-w-[50px]"
           />
           {searchQuery && !isRecording && (
